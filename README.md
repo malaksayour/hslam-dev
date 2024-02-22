@@ -36,6 +36,22 @@ To use this Dockerfile and build the FSLAM project, follow these steps:
 ```bash
     cd ~/catkin_ws/src/FSLAM/Thirdparty
 ```
+4. Delete OPenCV folder
+5. Run:                                                                                                                                                   
+```bash
+cvVersion=3.4.6
+DL_opencv="https://github.com/opencv/opencv/archive/${cvVersion}.zip"
+DL_contrib="https://github.com/opencv/opencv_contrib/archive/${cvVersion}.zip"
+wget ceres-solver.org/ceres-solver-1.14.0.tar.gz \
+    && tar -zxf ceres-solver-1.14.0.tar.gz \
+    && wget -O opencv.zip -nc "${DL_opencv}" \
+    && unzip opencv.zip \
+    && rm opencv.zip \
+    && cd opencv-3.4.6 \
+    && wget -O opencv_contrib.zip -nc "${DL_contrib}" \
+    && unzip opencv_contrib.zip \
+    && rm opencv_contrib.zip
+```
 4. Build Thirparty libraries using script(cmake).
 ```bash
     sudo chmod +x build.sh && ./build.sh
