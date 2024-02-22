@@ -40,7 +40,7 @@ To use this Dockerfile and build the FSLAM project, follow these steps:
 ```bash
     sudo chmod +x build.sh && ./build.sh
 ```
-5. Navigate to the Thirdparty directory.
+5. Navigate to the FSLAM directory.
 ```bash
     cd /catkin_ws/src/FSLAM
 ```
