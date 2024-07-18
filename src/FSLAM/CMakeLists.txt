@@ -12,7 +12,7 @@ set(EXECUTABLE_OUTPUT_PATH bin)
 set(LIBRARY_OUTPUT_PATH lib)
 set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
 
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 set(OpenCV_DIR ~/catkin_ws/src/FSLAM/Thirdparty/CompiledLibs/share/OpenCV)
@@ -33,6 +33,10 @@ find_package(DBoW3 REQUIRED) #PATHS  ~/catkin_ws/src/FSLAM/Thirdparty/CompiledLi
 # optional libraries
 find_package(LibZip QUIET)
 find_package(Pangolin 0.2 QUIET)# PATHS  ~/catkin_ws/src/FSLAM/Thirdparty/CompiledLibs)
+
+#pcl libraries
+find_package(PCL 1.8 REQUIRED)
+
 
 
 # flags
@@ -97,6 +101,7 @@ include_directories(
   ${PROJECT_SOURCE_DIR}/Thirdparty/sse2neon
   ${EIGEN3_INCLUDE_DIR}
   ${G2O_INCLUDE_DIR}
+  ${PCL_INCLUDE_DIRS}
 ) 
 
 
@@ -164,6 +169,7 @@ set(LIBS
   ${Pangolin_LIBRARIES}
   ${DBoW3_LIB_DIR}/libDBoW3.so
   ${BOOST_THREAD_LIBRARY}
+  ${PCL_LIBRARIES}
   boost_system
   cxsparse
   cholmod

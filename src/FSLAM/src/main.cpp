@@ -364,6 +364,7 @@ int main(int argc, char **argv)
 
 
         fullSystem->printResult("result.txt");
+        fullSystem->saveMap("map.pcd");
 
 
         int numFramesProcessed = abs(idsToPlay[0]-idsToPlay.back());

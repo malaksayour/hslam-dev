@@ -2496,6 +2496,28 @@ void FullSystem::BAatExit()
 }
 
 
+
+void FullSystem::saveMap(std::string file, bool printSim)
+{
+
+	std::vector<Eigen::Vector3f> map_points=getMap();
+	pcl::PointCloud<pcl::PointXYZ> cloud_out;
+
+	for (size_t i = 0; i < map_points.size(); i++)
+	{
+		pcl::PointXYZ point;
+		point.x=map_points[i].x();
+		point.y=map_points[i].y();
+		point.z=map_points[i].z();
+		cloud_out.push_back(point);
+	}
+	    // Save the PCL point cloud to a PCD file
+    pcl::PCDWriter writer;
+    writer.write(file, cloud_out);
+
+}
+
+
 // SE3 FullSystem::cumulativeForm()
 // {
 // 	auto v = vVelocity;
