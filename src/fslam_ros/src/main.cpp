@@ -434,6 +434,8 @@ int main( int argc, char** argv )
 			
 	
 	fullSystem->printResult("result.txt"); 
+	fullSystem->saveMap("map.txt"); 
+
 	//if(viewer != 0)
 	//    viewer->run();
 	//Clean-up and exit
